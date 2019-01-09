@@ -3,7 +3,6 @@
 #include <cstring>
 #include <sstream>
 
-
 using namespace std;
 
 int main(int argc, char* argv[]){
@@ -13,9 +12,9 @@ int main(int argc, char* argv[]){
 	int lasLen = 0;
 	int bottomMax;
 	int topMax;
-	int depthNums[400];
+	int depthNums[1000];
 	int depthNumLen = 0;
-	string las[14000] ;
+	string las[20000] ;
 	string inputFile = "";
 	string outputFile = "";
 	string instr = "";
@@ -28,8 +27,6 @@ int main(int argc, char* argv[]){
 		} 
 	else if( argc == 2 ) {
 
-		// string instr = argv[1];
-
 			if (strcmp(argv[1], "/?") == 0){
 				cout << "LasCreator (c) Jason Turner 2016\n";
 				cout << "[LasCreator.WellCompletions.Com]\n\n";
@@ -40,10 +37,6 @@ int main(int argc, char* argv[]){
 				cout << "\n\n";
 				cout << "Usage: LasCreator.exe inputfile.txt outputfile.las\n";
 				cout << "Or, alternatly you can enter the filenames at the Prompt.\n\n\n";
-				
-				// wait for user input 
-				cout << "Press enter to continue ..."; 
-    			cin.get();
 				
 				return 0;
 			}
@@ -138,9 +131,10 @@ int main(int argc, char* argv[]){
 			depthNumLen++;
 			
 		}
-		cout << "\n\n" << depthNumLen << "\n";// print out the number of casing joints (depthNumLen)
 		depthFile.close();
-		// wait for user input to inspect the file 
+		cout << "\nA total of " << depthNumLen << " Joints found\n";// print out the number of casing joints (depthNumLen)
+		
+		// wait for user input to itterate and build the file 
 		cout << "Press enter to continue ..."; 
     	cin.get();
 	} 	else { 
@@ -163,7 +157,6 @@ int main(int argc, char* argv[]){
 		} else {
 			// Loop for all the other depths
 			
-
 				while (depthCtr != depthNums[i]) {
 					//  cout << depthCtr << ".0     0.0     | |\n";
 					stringstream ss;
@@ -178,32 +171,27 @@ int main(int argc, char* argv[]){
 				ss << depthNums[i] << ".0000     1.0000\n";
 				las[lasLen] = ss.str();
 				depthCtr--;
-				lasLen++;
-				 //  cout << depthNumLen << "  " << i << "\n";
-			    
+				lasLen++;		    
 		}
 	}
 	topMax = depthCtr + 1;
-	cout << "\n" << bottomMax << "\n";
-	cout << topMax << "\n";
+	
 	stringstream ssBMax;
 	ssBMax << "STRT.FT             " << bottomMax << ".0000: START DEPTH\n";
 	las[4] = ssBMax.str();
 	stringstream ssSMax;
 	ssSMax << "STOP.FT             " << topMax << ".0000: STOP DEPTH\n";
 	las[5] = ssSMax.str();
-	////system("pause");
-
+	
 	ofstream lasFile(outputFile.c_str());
-
-
 	for (int i = 0; i < lasLen; i++) {
 		
-		// cout << las[i];
 		lasFile << las[i];
 	}
 	lasFile.close();
-	// system("pause");
+	cout << "\nStarting depth " << bottomMax << ".0\n";
+	cout << "Ending depth " << topMax << ".0\n";
+	cout << "File " << outputFile << " was created sucessfully.\n\n\n";
 
 
 	return 0;
