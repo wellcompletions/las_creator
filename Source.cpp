@@ -27,17 +27,23 @@ int main(int argc, char* argv[]){
 		} 
 	else if( argc == 2 ) {
 
-			if (strcmp(argv[1], "/?") == 0){
+			if ((strcmp(argv[1], "/?") == 0) || (strcmp(argv[1], "-help") == 0) || (strcmp(argv[1], "--help") == 0) ){
 				cout << "\nLasCreator (c) Jason Turner 2016\n";
 				cout << "[LasCreator.WellCompletions.Com]\n\n";
 				cout << "Creates a ASCII Las logging file from a Casing Tally.\n\n";
-				cout << "LASCREATOR.EXE source [destination] \n\n";
+				cout << "LASCREATOR.EXE [source] [destination] \n\n";
 				cout << "source          Specifies the file that contains Casing Collar depths (one depth per line)\n";
 				cout << "destination     Specifies the location and name of the new Las file.\n";
 				cout << "\n\n";
 				cout << "Usage: LasCreator.exe inputfile.txt outputfile.las\n";
-				cout << "Or, alternatly you can enter the filenames at the Prompt.\n\n\n";
-				
+				cout << "Alternatly you can enter the requested filenames at the Prompt.\n\n";
+				cout << "The depths need to be in descending order with no decimal places or commas, with only one depth per line.\n\n";
+				cout << "[Text File Example]\n\n";
+				cout << "20001\n";
+				cout << "19960\n";
+				cout << "19921\n";
+				cout << "19882\n";
+				cout << "19845\n\n";
 				return 0;
 			}
 		
@@ -124,6 +130,10 @@ int main(int argc, char* argv[]){
 	depthFile.open(inputFile.c_str());
 	if(depthFile.is_open()){
 		while (depthFile >> depth) {
+			
+			if(depthNums[depthNumLen-1] == depth){
+				depth = depth -1;
+			}
 			depthNums[depthNumLen] = depth;
 			// print it out to test it
 			cout << depthNums[depthNumLen] << "\n";
