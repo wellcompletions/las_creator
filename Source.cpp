@@ -28,7 +28,7 @@ int main(int argc, char* argv[]){
 	else if( argc == 2 ) {
 
 			if (strcmp(argv[1], "/?") == 0){
-				cout << "LasCreator (c) Jason Turner 2016\n";
+				cout << "\nLasCreator (c) Jason Turner 2016\n";
 				cout << "[LasCreator.WellCompletions.Com]\n\n";
 				cout << "Creates a ASCII Las logging file from a Casing Tally.\n\n";
 				cout << "LASCREATOR.EXE source [destination] \n\n";
@@ -74,7 +74,7 @@ int main(int argc, char* argv[]){
                 las[14] = "SECT.                         : SECTION\n";
                 las[15] = "TOWN.                         : TOWNSHIP\n";
                 las[16] = "RANG.                         : RANGE\n";
-                las[17] = "API.                          : API#\n";
+                las[17] = "API.                          : API#\n";  //Mandatory 
                 las[18] = "OS.                           : OTHER SERVICES\n";
                 las[19] = "PDAT.FT                       : PERMANENT DATUM\n";
                 las[20] = "EEL.FT                        : ELEVATION\n";
@@ -138,7 +138,9 @@ int main(int argc, char* argv[]){
 		cout << "Press enter to continue ..."; 
     	cin.get();
 	} 	else { 
-		cout << "Unable to open file";
+		cout << "Unable to open file\n";
+		cout << "Check that you have the directory correct?\n\n";
+		return 0;
 	}
 	
 	
@@ -147,7 +149,7 @@ int main(int argc, char* argv[]){
 		if (i == 0) {
 			// firstline in data
 			bottomMax = depthNums[i];
-			cout << depthNums[i] << ".0     1.0     ---\n"; // coment out for faster output
+			cout << depthNums[i] << ".0     1.0     ---\n"; // comment out for faster output
 			stringstream ss;
 			ss << depthNums[i] << ".0000     1.0000\n";
 			las[lasLen] = ss.str();
@@ -189,6 +191,7 @@ int main(int argc, char* argv[]){
 		lasFile << las[i];
 	}
 	lasFile.close();
+
 	cout << "\nStarting depth " << bottomMax << ".0\n";
 	cout << "Ending depth " << topMax << ".0\n";
 	cout << "File " << outputFile << " was created sucessfully.\n\n\n";
