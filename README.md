@@ -44,7 +44,7 @@ g++ -o ouputfile.exe Source.cpp -static-libgcc -static-libstdc++
 ## Output example
 [sample.LAS]
 
-
+<P>
 ~Version Information
 VERS.                      2.0: CWLS Log ASCII Standard - VERSION 2.0
 WRAP.                       NO: One line per depth step
@@ -258,3 +258,5 @@ DEPT.FT            0 000 00 00: Depth
 19847.0000     0.0000
 19846.0000     0.0000
 19845.0000     1.0000
+
+</p>
