@@ -22,7 +22,17 @@ Or, alternatly you can enter the filenames at the Prompt.
 
 The depths need to be in descending order with no decimal places or commas, with only one depth per line.
 
-[Text File Example]
+## Compiling
+
+Linux:
+g++ -o ouputfile Source.cpp -static-libgcc -static-libstdc++
+
+Windows:
+g++ -o ouputfile.exe Source.cpp -static-libgcc -static-libstdc++
+
+## Input example
+
+[input.txt]
 
 ```
 20001
@@ -35,13 +45,7 @@ The depths need to be in descending order with no decimal places or commas, with
 Usage example:
 C:\User\>LasCreator.exe lastextfile.txt yourlasfile.LAS
 
-## Compiling
 
-Linux:
-g++ -o ouputfile Source.cpp -static-libgcc -static-libstdc++
-
-Windows:
-g++ -o ouputfile.exe Source.cpp -static-libgcc -static-libstdc++
 
 ## Output example
 [sample.LAS]
