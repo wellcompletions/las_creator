@@ -24,16 +24,13 @@ The depths need to be in descending order with no decimal places or commas, with
 
 [Text File Example]
 
+```
 20001
-
 19960
-
 19921
-
 19882
-
 19845
-
+```
 
 Usage example:
 C:\User\>LasCreator.exe lastextfile.txt yourlasfile.LAS
@@ -49,7 +46,7 @@ g++ -o ouputfile.exe Source.cpp -static-libgcc -static-libstdc++
 ## Output example
 [sample.LAS]
 
-```javascript 
+``` 
 ~Version Information
 VERS.                      2.0: CWLS Log ASCII Standard - VERSION 2.0
 WRAP.                       NO: One line per depth step
