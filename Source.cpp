@@ -14,7 +14,7 @@ int main(int argc, char* argv[]){
 	int topMax;
 	int depthNums[1000];
 	int depthNumLen = 0;
-	string las[20000] ;
+	string las[50000] ;
 	string inputFile = "";
 	string outputFile = "";
 	string instr = "";
@@ -131,10 +131,19 @@ int main(int argc, char* argv[]){
 	if(depthFile.is_open()){
 		while (depthFile >> depth) {
 			
-			if(depthNums[depthNumLen-1] == depth){
-				depth = depth -1;
-			}
 			depthNums[depthNumLen] = depth;
+
+			if(depthNumLen > 0 && depthNums[depthNumLen-1] == depth){
+				depth = depth -1;
+			} else if (depthNumLen > 0 && depthNums[depthNumLen-1] < depth){
+				cout << depth;
+				cout << "\n\nDepths must be in descending order.\n";
+
+				cout << "Depth number " << depthNumLen << " is incorrect.\n";
+				cout << "Depth " << depthNums[depthNumLen-1] << " < " << depth <<"\n\n";
+				return 0; 
+			}
+			
 			// print it out to test it
 			cout << depthNums[depthNumLen] << "\n";
 
