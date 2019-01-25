@@ -2,17 +2,18 @@
 #include <fstream>
 #include <cstring>
 #include <sstream>
+#include <math.h> 
 
 using namespace std;
 
 int main(int argc, char* argv[]){
 
 	int depthCtr = 0;
-	int depth;
 	int lasLen = 0;
 	int bottomMax;
 	int topMax;
-	int depthNums[1000];
+	float depth;
+	float depthNums[1000];
 	int depthNumLen = 0;
 	string las[50000] ;
 	string inputFile = "";
@@ -130,15 +131,17 @@ int main(int argc, char* argv[]){
 	depthFile.open(inputFile.c_str());
 	if(depthFile.is_open()){
 		while (depthFile >> depth) {
-			
+			cout << depth <<"\n";
+			depth = round(depth);
+			cout << "this is rounded " << depth << "\n";
 			depthNums[depthNumLen] = depth;
-
+			// Look for duplicates
+			// Then for ascending
 			if(depthNumLen > 0 && depthNums[depthNumLen-1] == depth){
 				depth = depth -1;
 			} else if (depthNumLen > 0 && depthNums[depthNumLen-1] < depth){
 				cout << depth;
 				cout << "\n\nDepths must be in descending order.\n";
-
 				cout << "Depth number " << depthNumLen << " is incorrect.\n";
 				cout << "Depth " << depthNums[depthNumLen-1] << " < " << depth <<"\n\n";
 				return 0; 
