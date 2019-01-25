@@ -20,7 +20,7 @@ destination     Specifies the location and name of the new Las file.
 Usage: LasCreator.exe inputfile.txt outputfile.las
 Or, alternatly you can enter the filenames at the Prompt.
 
-The depths need to be in descending order with no decimal places or commas, with only one depth per line.
+The depths need to be in descending order with no commas, with only one depth per line.
 
 ## Compiling
 
@@ -34,6 +34,14 @@ g++ -o ouputfile.exe Source.cpp -static-libgcc -static-libstdc++
 
 [input.txt]
 
+```
+20001.25
+19960.46
+19921.52
+19882.46
+19845.50
+```
+Or:
 ```
 20001
 19960
