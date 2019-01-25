@@ -138,7 +138,7 @@ int main(int argc, char* argv[]){
 			// Look for duplicates
 			// Then for ascending
 			if(depthNumLen > 0 && depthNums[depthNumLen-1] == depth){
-				depth = depth -1;
+				depthNums[depthNumLen] = depth -1;
 			} else if (depthNumLen > 0 && depthNums[depthNumLen-1] < depth){
 				cout << depth;
 				cout << "\n\nDepths must be in descending order.\n";
@@ -171,7 +171,7 @@ int main(int argc, char* argv[]){
 		if (i == 0) {
 			// firstline in data
 			bottomMax = depthNums[i];
-			cout << depthNums[i] << ".0     1.0     ---\n"; // comment out for faster output
+			cout << depthNums[i] << ".0     1.0     *---\n"; // comment out for faster output
 			stringstream ss;
 			ss << depthNums[i] << ".0000     1.0000\n";
 			las[lasLen] = ss.str();
