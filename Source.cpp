@@ -131,9 +131,7 @@ int main(int argc, char* argv[]){
 	depthFile.open(inputFile.c_str());
 	if(depthFile.is_open()){
 		while (depthFile >> depth) {
-			cout << depth <<"\n";
 			depth = round(depth);
-			cout << "this is rounded " << depth << "\n";
 			depthNums[depthNumLen] = depth;
 			// Look for duplicates
 			// Then for ascending
