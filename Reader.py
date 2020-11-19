@@ -1,4 +1,8 @@
-﻿import csv     # imports the csv module
+﻿# Takes a specific CSV file with a column labeled BTM 
+# Data must be copied to an existing LAS file
+# Just written as a proof of concept
+
+import csv     # imports the csv module
 import sys      # imports the sys module
 
 f = open(sys.argv[1], 'r') # opens the csv file
