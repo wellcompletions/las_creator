@@ -117,7 +117,7 @@ int main(int argc, char* argv[]){
 		depthFile.close();
 		cout << "\nA total of " << depthNumLen << " Joints found\n";// print out the number of casing joints (depthNumLen)
 		
-		// wait for user input to itterate and build the file 
+		// wait for user input to iterate and build the file 
 		cout << "Press enter to continue ..."; 
     	cin.get();
 	} 	else { 
@@ -177,7 +177,7 @@ int main(int argc, char* argv[]){
 
 	cout << "\nStarting depth " << bottomMax << ".0\n";
 	cout << "Ending depth " << topMax << ".0\n";
-	cout << "File " << outputFile << " was created sucessfully.\n\n\n";
+	cout << "File " << outputFile << " was created successfully.\n\n\n";
 
 
 	return 0;
