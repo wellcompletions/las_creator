@@ -37,7 +37,7 @@ int main(int argc, char* argv[]){
 				cout << "destination     Specifies the location and name of the new Las file.\n";
 				cout << "\n\n";
 				cout << "Usage: LasCreator.exe inputfile.txt outputfile.las\n";
-				cout << "Alternatly you can enter the requested filenames at the Prompt.\n\n";
+				cout << "Alternatively you can enter the requested filenames at the Prompt.\n\n";
 				cout << "The depths need to be in descending order with no decimal places or commas, with only one depth per line.\n\n";
 				cout << "[Text File Example]\n\n";
 				cout << "20001\n";
