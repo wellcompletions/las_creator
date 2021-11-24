@@ -11,18 +11,30 @@ LasCreator (c) Jason Turner 2016
 
 Creates a ASCII Las logging file from a Casing Tally.
 
+<pre>
 LASCREATOR.EXE [source] [destination] 
 
 source          Specifies the file that contains Casing Collar depths (one depth per line)
 destination     Specifies the location and name of the new Las file.
 
+Usage: 
+Copy LasCretor.exe and your XXXXX.txt files into the same directory and open a Command Prompt:
 
-Usage: LasCreator.exe inputfile.txt outputfile.las
-Or, alternatly you can enter the filenames at the Prompt.
+Example:
+C:\Users\User\Folder>LasCreator.exe inputfile.txt outputfile.las
+
+Additional Example:
+C:\User\>LasCreator.exe depthfile.txt yourlasfile.LAS
+
+</pre>
+
+Or, alternatly you can enter the filenames at the Prompt, but make sure to encapsulate filenames with spaced in single quotes.
+  <pre>'input file with spaces.txt' 'output file with spaces.LAS'</pre>
 
 The depths need to be in descending order with no commas, with only one depth per line.
 
 ## Compiling
+If you want to compilie your own (expert level, not needed if you just download the executable release version)
 
 Linux:
 g++ -o ouputfile Source.cpp -static-libgcc -static-libstdc++
@@ -50,11 +62,6 @@ Or:
 19845
 ```
 
-Usage example:
-C:\User\>LasCreator.exe lastextfile.txt yourlasfile.LAS
-
-
-
 ## Output example
 [sample.LAS]
 
@@ -72,7 +79,6 @@ WELL.                         : WELL
 FLD.                          : FIELD
 LOC.                          : LOCATION
 DATE.                         : LOG DATE
-SECT.                         : SECTION
 SECT.                         : SECTION
 TOWN.                         : TOWNSHIP
 RANG.                         : RANGE
