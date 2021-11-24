@@ -3,6 +3,8 @@
 #include <cstring>
 #include <sstream>
 #include <math.h> 
+#include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -12,6 +14,7 @@ int main(int argc, char* argv[]){
 	int lasLen = 0;
 	int bottomMax;
 	int topMax;
+	string strdepth;
 	float depth;
 	float depthNums[1000];
 	int depthNumLen = 0;
@@ -93,7 +96,9 @@ int main(int argc, char* argv[]){
 
 	depthFile.open(inputFile.c_str());
 	if(depthFile.is_open()){
-		while (depthFile >> depth) {
+		while (depthFile >> strdepth) {
+			strdepth.erase(remove(strdepth.begin(), strdepth.end(), ','),strdepth.end());
+			depth = stof(strdepth);
 			depth = round(depth);
 			depthNums[depthNumLen] = depth;
 			// Look for duplicates
