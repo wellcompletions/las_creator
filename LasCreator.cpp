@@ -32,36 +32,54 @@ int main(int argc, char* argv[]){
 	else if( argc == 2 ) {
 
 			if ((strcmp(argv[1], "/?") == 0) || (strcmp(argv[1], "-help") == 0) || (strcmp(argv[1], "--help") == 0) ){
-				cout << "\nLasCreator (c) Jason Turner 2016\n";
+				cout << "\nLasCreator (c) Jason Turner 2021\n";
 				cout << "[LasCreator.WellCompletions.Com]\n\n";
 				cout << "Creates a ASCII Las logging file from a Casing Tally.\n\n";
-				cout << "LASCREATOR.EXE [source] [destination] \n\n";
+				cout << "LasCreator.exe [source] [destination] \n\n";
 				cout << "source          Specifies the file that contains Casing Collar depths (one depth per line)\n";
 				cout << "destination     Specifies the location and name of the new Las file.\n";
 				cout << "\n\n";
 				cout << "Usage: LasCreator.exe inputfile.txt outputfile.las\n";
-				cout << "Alternatively you can enter the requested filenames at the Prompt.\n\n";
-				cout << "The depths need to be in descending order with no decimal places or commas, with only one depth per line.\n\n";
+				// cout << "Alternatively you can enter the requested filenames at the Prompt.\n\n";
+				cout << "The depths need to be in descending order, with only one depth per line.\n\n";
 				cout << "[Text File Example]\n\n";
 				cout << "20001\n";
 				cout << "19960\n";
 				cout << "19921\n";
 				cout << "19882\n";
 				cout << "19845\n\n";
+				system("pause");
 				return 0;
 			}
 		
 		}
 	
 	else {
-		cout << "LasCreator (c) Jason Turner 2016\n";
-		cout << "[LasCreator.WellCompletions.Com]\n\n";
-		cout << "[MANUAL ENTRY]\n\n";
-		cout << "Enter the name of the Casing tally text file [ex: F:\\tally.txt]:\n";
-		getline(cin, inputFile);
-		cout << "Enter the name of the Output filename [ex. F:\\somelasfile.las\n";
-		getline(cin, outputFile);
+		// cout << "LasCreator (c) Jason Turner 2021\n";
+		// cout << "[LasCreator.WellCompletions.Com]\n\n";
+		// cout << "[MANUAL ENTRY]\n\n";
+		// cout << "Enter the name of the Casing tally text file [ex: F:\\tally.txt]:\n";
+		// getline(cin, inputFile);
+		// cout << "Enter the name of the Output filename [ex. F:\\somelasfile.las\n";
+		// getline(cin, outputFile);
 		// return 1;
+		cout << "\nLasCreator (c) Jason Turner 2021\n";
+		cout << "[LasCreator.WellCompletions.Com]\n\n";
+		cout << "Creates a ASCII Las logging file from a Casing Tally.\n\n";
+		cout << "LasCreator.exe [source] [destination] \n\n";
+		cout << "source          Specifies the file that contains Casing Collar depths (one depth per line)\n";
+		cout << "destination     Specifies the location and name of the new Las file.\n";
+		cout << "\n\n";
+		cout << "Usage: LasCreator.exe inputfile.txt outputfile.las\n";
+		cout << "The depths need to be in descending order, with only one depth per line.\n\n";
+		cout << "[Text File Example]\n\n";
+		cout << "20,001.02\n";
+		cout << "19,960.35\n";
+		cout << "19,921.29\n";
+		cout << "19,882.41\n";
+		cout << "19,845.35\n\n";
+		system("pause");
+		return 0;
 	}
 
 
@@ -97,8 +115,8 @@ int main(int argc, char* argv[]){
 	depthFile.open(inputFile.c_str());
 	if(depthFile.is_open()){
 		while (depthFile >> strdepth) {
-			strdepth.erase(remove(strdepth.begin(), strdepth.end(), ','),strdepth.end());
-			depth = stof(strdepth);
+			strdepth.erase(remove(strdepth.begin(), strdepth.end(), ','), strdepth.end());
+			depth = stof(strdepth );
 			depth = round(depth);
 			depthNums[depthNumLen] = depth;
 			// Look for duplicates
