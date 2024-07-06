@@ -34,7 +34,7 @@ Or, alternatly you can enter the filenames at the Prompt, but make sure to encap
 The depths need to be in descending order with no commas, with only one depth per line.
 
 ## Compiling
-If you want to compilie your own (expert level, not needed if you just download the executable release version)
+If you want to compile your own (expert level, not needed if you just download the executable release version)
 
 Linux:
 g++ -o ouputfile Source.cpp -static-libgcc -static-libstdc++
